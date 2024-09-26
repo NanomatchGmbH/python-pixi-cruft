@@ -80,7 +80,7 @@ conda-build = "*"
 condabuild = "conda build conda-recipe/"
 
 [tool.pixi.feature.pythonbuild.dependencies]
-build = "*"
+python-build = "*"
 
 [tool.pixi.feature.pythonbuild.tasks]
 pythonbuild = "python3 -m build"
