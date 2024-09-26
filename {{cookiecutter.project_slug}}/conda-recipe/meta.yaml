@@ -8,7 +8,7 @@ about:
 source:
   git_url: ../
 build:
-  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed -vv ."
+  script: {% raw %}"{{ PYTHON }} -m pip install --no-deps --ignore-installed -vv ."{% endraw %}
   noarch: python
 requirements:
   build:
