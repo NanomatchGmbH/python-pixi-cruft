@@ -1,4 +1,4 @@
-name: "Build Conda Package"
+{% raw %}name: "Build Conda Package"
 on:
   workflow_dispatch:
 defaults:
@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: condapackage
-          path: ${{ steps.build.outputs.releasepath }}
+          path: ${{ steps.build.outputs.releasepath }}{% endraw %}

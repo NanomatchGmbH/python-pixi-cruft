@@ -1,4 +1,4 @@
-name: CI
+{% raw %}name: CI
 on:
   push:
     branches:
@@ -35,4 +35,4 @@ jobs:
         run: |
           pixi run lint
       - name: Assert no changes
-        run: git diff --exit-code
+        run: git diff --exit-code{% endraw %}

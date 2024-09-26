@@ -1,4 +1,4 @@
-name: "Build pypi Package"
+{% raw %}name: "Build pypi Package"
 on:
   workflow_dispatch:
 defaults:
@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: pypipackage
-          path: dist/*
+          path: dist/*{% endraw %}
