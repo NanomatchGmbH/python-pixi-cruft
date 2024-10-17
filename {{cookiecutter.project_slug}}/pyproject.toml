@@ -46,6 +46,7 @@ platforms = ["linux-64"]
 [tool.pixi.environments]
 test = ["test"]
 mypy = ["mypy"]
+cruft = { features = ["cruft"], no-default-feature = true }
 pythonbuild = { features = ["pythonbuild"], no-default-feature = true, solve-group = "default" }
 condabuild = { features = ["condabuild"], no-default-feature = true, solve-group = "default" }
 lint = { features = ["lint"], no-default-feature = true, solve-group = "default" }
@@ -60,6 +61,12 @@ typos = ">=1.23.1,<2"
 pre-commit-install = "pre-commit install"
 pre-commit-run = "pre-commit run --all"
 lint = { depends-on = ["pre-commit-run"] }
+
+[tool.pixi.feature.cruft.dependencies]
+cruft = "*"
+
+[tool.pixi.feature.cruft.tasks]
+cruft = "cruft"
 
 [tool.pixi.feature.test.tasks]
 tests = "pytest"
