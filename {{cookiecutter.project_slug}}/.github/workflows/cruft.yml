@@ -25,5 +25,4 @@ jobs:
            title: '[Cruft] Update to newest cruft template'
            labels: |
              cruft
-             bot
-{% endraw %}
+             bot{% endraw %}
