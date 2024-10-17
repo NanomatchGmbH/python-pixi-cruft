@@ -9,6 +9,8 @@ classifiers = ["License :: OSI Approved :: MIT License"]
 version="0.1.0"
 description="{{ cookiecutter.project_short_description  }}"
 
+[project.urls]
+Homepage = "{{ cookiecutter.github_url }}"
 
 [project.optional-dependencies]
 test = ["pytest"]
