@@ -12,9 +12,6 @@ description="{{ cookiecutter.project_short_description  }}"
 [project.urls]
 Homepage = "{{ cookiecutter.github_url }}"
 
-[project.optional-dependencies]
-test = ["pytest"]
-
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
@@ -80,8 +77,14 @@ cruft = "*"
 [tool.pixi.feature.cruft.tasks]
 cruft = "cruft"
 
+[tool.pixi.feature.test.dependencies]
+# Cruft dependencies here:
+pytest = ">=7,<8"
+pytest-cov = ">=6.0.0,<7"
+# Cruft dependencies end. Add yours below this line
+
 [tool.pixi.feature.test.tasks]
-tests = "pytest"
+tests = "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov={{ cookiecutter.project_slug }} | tee pytest-coverage.txt"
 
 [tool.pixi.feature.mypy.dependencies]
 mypy = "*"
