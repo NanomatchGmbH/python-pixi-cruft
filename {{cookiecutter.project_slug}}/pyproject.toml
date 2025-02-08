@@ -13,11 +13,12 @@ description="{{ cookiecutter.project_short_description  }}"
 Homepage = "{{ cookiecutter.github_url }}"
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+include-package-date = true
 
 [tool.pixi.project]
 channels = ["conda-forge"]

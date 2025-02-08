@@ -15,6 +15,7 @@ requirements:
     - python >=3.8
     - build
     - setuptools
+    - setuptools-scm
   run:
     - python >=3.8
 test:
