@@ -85,7 +85,7 @@ pytest-cov = ">=6.0.0,<7"
 # Cruft dependencies end. Add yours below this line
 
 [tool.pixi.feature.test.tasks]
-tests = "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov={{ cookiecutter.project_slug }} | tee pytest-coverage.txt"
+tests = "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov={{ cookiecutter.project_slug }}"
 
 [tool.pixi.feature.mypy.dependencies]
 mypy = "*"
