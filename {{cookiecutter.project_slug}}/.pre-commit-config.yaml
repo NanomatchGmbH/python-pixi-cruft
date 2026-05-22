@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: check-toml
       - id: check-yaml
@@ -8,7 +8,7 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.5
+    rev: v0.8.0
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix, --show-fixes]
@@ -17,14 +17,14 @@ repos:
     hooks:
       - id: pixi-install
         name: pixi-install
-        entry: pixi install -e mypy
+        entry: pixi install -e ty
         language: system
         always_run: true
         require_serial: true
         pass_filenames: false
-      - id: mypy
-        name: mypy
-        entry: "pixi run -e mypy mypy"
+      - id: ty
+        name: ty
+        entry: "pixi run -e ty ty"
         language: system
         pass_filenames: false
         require_serial: true
