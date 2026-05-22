@@ -59,7 +59,7 @@ ty = ["ty"]
 default = { features = ["dev"], solve-group = "main" }
 cruft = { features = ["cruft"], no-default-feature = true }
 pythonbuild = { features = ["pythonbuild"], no-default-feature = true, solve-group = "default" }
-condabuild = { features = ["condabuild"], no-default-feature = true, solve-group = "default" }
+rattlerbuild = { features = ["rattlerbuild"], no-default-feature = true, solve-group = "default" }
 lint = { features = ["lint"], no-default-feature = true, solve-group = "default" }
 
 [tool.pixi.feature.lint.dependencies]
@@ -97,11 +97,11 @@ ty = "*"
 [tool.pixi.feature.ty.tasks]
 ty = "ty check ."
 
-[tool.pixi.feature.condabuild.dependencies]
-conda-build = "*"
+[tool.pixi.feature.rattlerbuild.dependencies]
+rattler-build = "*"
 
-[tool.pixi.feature.condabuild.tasks]
-condabuild = "conda build conda-recipe/"
+[tool.pixi.feature.rattlerbuild.tasks]
+rattlerbuild = "rattler-build build --recipe recipe/"
 
 [tool.pixi.feature.pythonbuild.dependencies]
 python-build = "*"
