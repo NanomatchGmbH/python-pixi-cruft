@@ -4,8 +4,7 @@ authors = [{name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.em
 requires-python = ">= 3.11"
 dependencies = []
 readme = "README.md"
-license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: MIT License"]
+license = "MIT"
 version="0.1.0"
 description="{{ cookiecutter.project_short_description  }}"
 
@@ -19,6 +18,8 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 package-dir = {"" = "src"}
 include-package-data = true
+
+[tool.setuptools_scm]
 
 [tool.pixi.workspace]
 channels = ["conda-forge"]
@@ -101,7 +102,7 @@ ty = "ty check ."
 rattler-build = "*"
 
 [tool.pixi.feature.rattlerbuild.tasks]
-rattlerbuild = "rattler-build build --recipe recipe/"
+rattlerbuild = "rattler-build build --experimental --recipe recipe/"
 
 [tool.pixi.feature.pythonbuild.dependencies]
 python-build = "*"
