@@ -6,5 +6,6 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "project_short_description": "A short description of the project",
     "github_url": "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}",
-    "conda_publish_url": "https://prefix.dev/api/v1/upload/your_channel"
+    "conda_channel": "your_channel",
+    "_copy_without_render": ["recipe/recipe.yaml"]
 }

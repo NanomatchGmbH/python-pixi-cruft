@@ -4,8 +4,7 @@ authors = [{name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.em
 requires-python = ">= 3.11"
 dependencies = []
 readme = "README.md"
-license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: MIT License"]
+license = "MIT"
 version="0.1.0"
 description="{{ cookiecutter.project_short_description  }}"
 
@@ -20,9 +19,12 @@ build-backend = "setuptools.build_meta"
 package-dir = {"" = "src"}
 include-package-data = true
 
-[tool.pixi.project]
+[tool.setuptools_scm]
+
+[tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64"]
+requires-pixi = ">=0.69.0"
 
 [tool.pixi.pypi-dependencies]
 # These dependencies are the main pypi dependencies for your project
@@ -54,11 +56,11 @@ pixi-pycharm = "*"
 
 [tool.pixi.environments]
 test = { features = ["test"], solve-group = "default" }
-mypy = ["mypy"]
+ty = ["ty"]
 default = { features = ["dev"], solve-group = "main" }
 cruft = { features = ["cruft"], no-default-feature = true }
 pythonbuild = { features = ["pythonbuild"], no-default-feature = true, solve-group = "default" }
-condabuild = { features = ["condabuild"], no-default-feature = true, solve-group = "default" }
+rattlerbuild = { features = ["rattlerbuild"], no-default-feature = true, solve-group = "default" }
 lint = { features = ["lint"], no-default-feature = true, solve-group = "default" }
 
 [tool.pixi.feature.lint.dependencies]
@@ -87,20 +89,20 @@ pytest-cov = ">=6.0.0,<7"
 [tool.pixi.feature.test.tasks]
 tests = "python -m pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov={{ cookiecutter.project_slug }}"
 
-[tool.pixi.feature.mypy.dependencies]
-mypy = "*"
-# Add your mypy dependencies here:
+[tool.pixi.feature.ty.dependencies]
+ty = "*"
+# Add your ty dependencies here:
 
-# End of your mypy dependencies
+# End of your ty dependencies
 
-[tool.pixi.feature.mypy.tasks]
-mypy = "mypy ."
+[tool.pixi.feature.ty.tasks]
+ty = "ty check ."
 
-[tool.pixi.feature.condabuild.dependencies]
-conda-build = "*"
+[tool.pixi.feature.rattlerbuild.dependencies]
+rattler-build = "*"
 
-[tool.pixi.feature.condabuild.tasks]
-condabuild = "conda build conda-recipe/"
+[tool.pixi.feature.rattlerbuild.tasks]
+rattlerbuild = "rattler-build build --experimental --recipe recipe/"
 
 [tool.pixi.feature.pythonbuild.dependencies]
 python-build = "*"
@@ -116,12 +118,3 @@ testpaths = [
     "tests",
 ]
 
-[tool.mypy]
-mypy_path = "$MYPY_CONFIG_FILE_DIR/src"
-python_version = "3.12"
-disallow_untyped_defs = true
-show_error_codes = true
-no_implicit_optional = true
-warn_return_any = true
-warn_unused_ignores = true
-exclude = ["tests"]
